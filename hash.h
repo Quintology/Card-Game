@@ -4,7 +4,8 @@
 
 
 using namespace std;
-//hash table to hold username, password, and bitfield number 
+
+unordered_map< Username,Password, int>;  //hash table to hold username, password, and bitfield number 
              
 class login{
 string username;
