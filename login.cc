@@ -1,6 +1,6 @@
 #include <iostream>
 #include <unordered_map>
-#include "hash.h"
+#include "login.h"
 
 using namespace std; 
 
@@ -11,7 +11,7 @@ void die(){
 
 
 
-int main (){
+void login_hash(){
 unordered_map<login,int> database; // hashtable to hold login info and deck of cards
 cout << "Welcome to the the card Game" << endl; 
 cout << "Are you a new user? (Y/N)" << endl;
