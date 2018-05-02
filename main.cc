@@ -12,7 +12,7 @@ void die(){
 
 
 int main (){
-unordered_map<login,int> database;
+unordered_map<login,int> database; // hashtable to hold login info and deck of cards
 cout << "Welcome to the the card Game" << endl; 
 cout << "Are you a new user? (Y/N)" << endl;
       char c;
@@ -41,7 +41,9 @@ cout << "Are you a new user? (Y/N)" << endl;
             cout << "Enter new password" << endl;
             cin >> password;
             if (database.find(c.username)){
-                  
+                if (database[c.username] == database[c.password]){
+                  cout << "You are now logged in" << endl; 
+                }
            }
             else die();
       
