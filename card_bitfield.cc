@@ -1,7 +1,6 @@
 #include <sstream>
 #include <iostream>
 #include <stdexcept>
-#include "bitfield.h"
 using namespace std;
 
 //rename the cards adding more
@@ -81,5 +80,56 @@ int main() {
         stringstream ss(line);
         ss >> function;
         ss >> type2;
-    }
+        if (type2 == "GOBLIN_KNIGHT") type = 1;
+        if (type2 == "VETERAN_GOBLIN_KNIGHT") type = 2;
+        if (type2 == "MOUNTAIN_GIANT") type = 4;
+        if (type2 == "MIDGET_GIANT") type = 8;
+        if (type2 == "MIDGET_ARMY") type = 16;
+        if (type2 == "ARMY") type = 32;
+        if (type2 == "ARMY_OF_THE_DEAD") type = 64;
+        if (type2 == "DRAGON") type = 128;
+        if (type2 == "COST_GOBLIN_KNIGHT") type = 1;
+        if (type2 == "COST_VETERAN_GOBLIN_KNIGHT") type = 2;
+        if (type2 == "COST_MOUNTAIN_GIANT") type = 4;
+        if (type2 == "COST_MIDGET_GIANT") type = 8;
+        if (type2 == "COST_MIDGET_ARMY") type = 16;
+        if (type2 == "COST_ARMY") type = 32;
+        if (type2 == "COST_ARMY_OF_THE_DEAD") type = 64;
+        if (type2 == "COST_DRAGON")type = 128;
+        if (type2 == "DAMAGE_GOBLIN_KNIGHT") type = 1;
+        if (type2 == "DAMAGE_VETERAN_GOBLIN_KNIGHT") type = 2;
+        if (type2 == "DAMAGE_MOUNTAIN_GIANT") type = 4;
+        if (type2 == "DAMAGE_MIDGET_GIANT") type = 8;
+        if (type2 == "DAMAGE_MIDGET_ARMY")type = 16;
+        if (type2 == "DAMAGE_ARMY")type = 32;
+        if (type2 == "DAMAGE_ARMY_OF_THE_DEAD") type = 64;
+        if (type2 == "DAMAGE_DRAGON") type = 128;
+//INSERT FUNCTIONS HERE
+ }
 }
+
+  public:
+    Cardfield(): field(0) {}
+    void foo() {
+        if (field)
+            cout << "My deck is: " << field << "\n";
+        else
+            cout << "My deck is empty!" << endl;
+    }
+
+    void operator+=(const int64 flag) {
+        field = field | flag;
+    }
+
+    void operator-=(const int64 flag) {
+        field = field & ~ flag;
+    }
+
+    bool operator==(const int64 flag) {
+        return ((field & flag));
+    }
+};
+
+//INSERT CLASS HERE FOR THE COST
+
+//INSERT CLASS HERE FOR THE COST
