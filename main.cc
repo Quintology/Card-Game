@@ -1,7 +1,5 @@
 #include <iostream>
 #include <unordered_map>
-#include "login.h"
-#include "login.cc"
 
 using namespace std; 
 
@@ -13,7 +11,6 @@ void die(){
 
 int main(){
 
-login_hash();
 
 
 
