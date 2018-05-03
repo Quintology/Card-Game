@@ -22,7 +22,11 @@ Player who loses all health loses.
 
 
 Jacob Fraizer: creating class to hold deck
+
 Alfredo Gonzalez: Player turn phases, player health, and battle phase(card and player attack)
+
 Christopher Quinto: Bitfield holding card list
+
 Sawyer Hannel: Bitfield to hold card damage, health, and cost.
+
 Abdullah Qarni: Data structure to hold user decks
