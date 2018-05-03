@@ -4,17 +4,39 @@
 #include "bitfield.h"
 using namespace std;
 
-//rename the cards
+//rename the cards adding more
 enum card_types {
-    RED = 1,
-    YELLOW = 2,
-    GREEN = 4,
-    BLUE = 8,
-    ORANGE = 16,
-    ULTRAVIOLET = 32,
-    BROWN = 64,
-    BLACK = 128
+    GOBLIN_KNIGHT = 1,
+    VETERAN_GOBLIN_KNIGHT = 2,
+    MOUNTAIN_GIANT = 4,
+    MIDGET_GIANT = 8,
+    MIDGET_ARMY = 16,
+    ARMY = 32,
+    ARMY_OF_THE_DEAD = 64,
+    DRAGON = 128
 };
+
+//cost of cards
+//IDEA: COPY THE NAME OF THE CARD TYPES AND ADD COST_ AT THE BEGINNING OF THE CONSTANT INT
+const int COST_GOBLIN_KNIGHT = 1;
+const int COST_VETERAN_GOBLIN_KNIGHT = 2;
+const int COST_MOUNTAIN_GIANT = 4;
+const int COST_MIDGET_GIANT = 8;
+const int COST_MIDGET_ARMY = 16;
+const int COST_ARMY = 32;
+const int COST_ARMY_OF_THE_DEAD = 64;
+const int COST_DRAGON = 128;
+
+//damage of cards
+//IDEA: COPY THE NAME OF THE CARD TYPES AND ADD DAMAGE_ AT THE BEGINNING OF THE CONSTANT INT
+#define DAMAGE_GOBLIN_KNIGHT = 1,
+#define DAMAGE_VETERAN_GOBLIN_KNIGHT = 2,
+#define DAMAGE_MOUNTAIN_GIANT = 4,
+#define DAMAGE_MIDGET_GIANT = 8,
+#define DAMAGE_MIDGET_ARMY = 16,
+#define DAMAGE_ARMY = 32,
+#define DAMAGE_ARMY_OF_THE_DEAD = 64,
+#define DAMAGE_DRAGON = 128
 
 typedef int64_t int64;
 
@@ -42,6 +64,11 @@ class Cardfield {
         return ((field & flag));
     }
 };
+
+//INSERT CLASS HERE FOR THE COST
+
+//INSERT CLASS HERE FOR THE COST
+
 int main() {
     Cardfield cards;
     string function, line, type2;
@@ -56,6 +83,3 @@ int main() {
         ss >> type2;
     }
 }
-
-
-//just some test code
