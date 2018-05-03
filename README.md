@@ -18,8 +18,8 @@ END TURN.
 
 Player who loses all health loses.
 
-
-
+**************************************************************************************
+Contributors
 
 Jacob Fraizer: creating class to hold deck
 
