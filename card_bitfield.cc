@@ -108,28 +108,4 @@ int main() {
  }
 }
 
-  public:
-    Cardfield(): field(0) {}
-    void foo() {
-        if (field)
-            cout << "My deck is: " << field << "\n";
-        else
-            cout << "My deck is empty!" << endl;
-    }
-
-    void operator+=(const int64 flag) {
-        field = field | flag;
-    }
-
-    void operator-=(const int64 flag) {
-        field = field & ~ flag;
-    }
-
-    bool operator==(const int64 flag) {
-        return ((field & flag));
-    }
-};
-
-//INSERT CLASS HERE FOR THE COST
-
-//INSERT CLASS HERE FOR THE COST
+  
