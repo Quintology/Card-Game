@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <unordered_map>
+#include <cstdlib>
 
 using namespace std;
 void writeFile(string s) {
@@ -14,7 +15,7 @@ void writeFile(string s) {
 struct Login {
     std::string username;
     std::string password;
-    long long deck = 0;
+    int deck = 0;
     bool operator< (const Login &rhs) const {
         return deck > rhs.deck;
     }
@@ -27,6 +28,19 @@ void file_into_hash() {
     unordered_map<int, Login > database;
     ofstream myfile;
     myfile.open("login.txt");
+    while (myfile){
+    string user;
+    string pass;
+    myfile >> user;
+    myfile >> pass;
+    Login c;
+    c.username = user;
+    c.password = pass;
+    c.deck = rand() % 128;
+    int i = 0;
+    database <i, c >;
+    i++;
+    }
     myfile.close();
 }
 
