@@ -155,7 +155,7 @@ int main() {
         if (type2 == "DAMAGE_ARMY")type = 32;
         if (type2 == "DAMAGE_ARMY_OF_THE_DEAD") type = 64;
         if (type2 == "DAMAGE_DRAGON") type = 128;
-  	    if (type2 == "HEALTH_GOBLIN_KNIGHT") type = 1;
+  	if (type2 == "HEALTH_GOBLIN_KNIGHT") type = 1;
         if (type2 == "HEALTH_VETERAN_GOBLIN_KNIGHT") type = 2;
         if (type2 == "HEALTH_MOUNTAIN_GIANT") type = 4;
         if (type2 == "HEALTH_MIDGET_GIANT") type = 8;
