@@ -37,6 +37,8 @@ const int COST_DRAGON = 128;
 #define DAMAGE_ARMY_OF_THE_DEAD = 64,
 #define DAMAGE_DRAGON = 128
 
+//health of cards
+
 typedef int64_t int64;
 
 class Cardfield {
@@ -58,18 +60,53 @@ class Cardfield {
     void operator-=(const int64 flag) {
         field = field & ~ flag;
     }
-
-    bool operator==(const int64 flag) {
-        return ((field & flag));
-    }
 };
 
 //INSERT CLASS HERE FOR THE COST
+class Costfield: public Cardfield {
+  public:
+    Costfield(): Cardfield() {}
+    int64 energy_check() {
+        if (field) {
+            if (field < COST_GOBLIN_KNIGHT) {
+                cout << "I don't have any energy to summon Goblin Knight.\n";
+            }
+            if (field < COST_VETERAN_GOBLIN_KNIGHT) {
+                cout << "I don't have enough energy to summon Veteran Goblin Knight.\n";
+            }
+            if (field < COST_MIDGET_GIANT) {
+                cout << "I don't have enough energy to summon Midget Giant.\n";
+            }
+            if (field < COST_MIDGET_ARMY) {
+                cout << "I don't have enough energy to summon Midget Army.\n";
+            }
+            if (field < COST_ARMY) {
+                cout << "I don't have enough energy to summon Army.\n";
+            }
+            if (field < COST_ARMY_OF_THE_DEAD) {
+                cout << "I don't have enough energy to summon Army of the Dead.\n";
+            }
+            if (field < COST_DRAGON) {
+                cout << "I don't have enough energy to summon Dragon.\n";
+            }
+        }
+        if (!field)
+            throw runtime_error("Cannot select card when we don't have energy!");
+    }
+};
 
-//INSERT CLASS HERE FOR THE COST
+//INSERT CLASS HERE FOR THE DAMAGE
+class Damagefield: public Cardfield {
+  public:
+    Damagefield(): Cardfield() {}
+};
+
+//INSERT HEALTH CLASS HERE
 
 int main() {
     Cardfield cards;
+    Costfield costs;
+    Damagefield damage;
     string function, line, type2;
     int64 type;
 
@@ -105,7 +142,19 @@ int main() {
         if (type2 == "DAMAGE_ARMY_OF_THE_DEAD") type = 64;
         if (type2 == "DAMAGE_DRAGON") type = 128;
 //INSERT FUNCTIONS HERE
- }
-}
+ if (function == "ADD") {
+            if (type2[0]) {
+                cards += (type);
+                costs -= (type);
+                damage += (type);
+            }
+        } else if (function == "DELETE") {
+            if (type2[0]) {
+                cards -= (type);
+                costs += (type);
+                damage -= (type);
 
-  
+            }
+        } else throw runtime_error("Invalid Input");
+    }
+}
