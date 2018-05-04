@@ -36,7 +36,7 @@ void file_into_hash() {
     Login c;
     c.username = user;
     c.password = pass;
-    c.deck = rand() % 128;
+    c.deck = (rand() % 128) + 1;
     int i = 0;
     database <i, c >;
     i++;
