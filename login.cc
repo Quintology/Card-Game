@@ -4,6 +4,10 @@
 #include <cstdlib>
 
 using namespace std;
+
+
+ unordered_map<int, Login > database;
+
 void writeFile(string s) {
     ofstream myfile;
     myfile.open("login.txt");
@@ -25,7 +29,6 @@ struct Login {
 
 void file_into_hash() {
 
-    unordered_map<int, Login > database;
     ofstream myfile;
     myfile.open("login.txt");
     while (myfile){
@@ -36,7 +39,7 @@ void file_into_hash() {
     Login c;
     c.username = user;
     c.password = pass;
-    c.deck = rand() % 128;
+    c.deck = (rand() % 128) + 1;
     int i = 0;
     database <i, c >;
     i++;
