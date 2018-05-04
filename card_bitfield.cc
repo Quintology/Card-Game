@@ -38,6 +38,14 @@ const int COST_DRAGON = 128;
 #define DAMAGE_DRAGON = 128
 
 //health of cards
+const int HEALTH_GOBLIN_KNIGHT = 1;
+const int HEALTH_VETERAN_GOBLIN_KNIGHT = 2;
+const int HEALTH_MOUNTAIN_GIANT = 4;
+const int HEALTH_MIDGET_GIANT = 8;
+const int HEALTH_MIDGET_ARMY = 16;
+const int HEALTH_ARMY = 32;
+const int HEALTH_ARMY_OF_THE_DEAD = 64;
+const int HEALTH_DRAGON = 128;
 
 typedef int64_t int64;
 
@@ -102,11 +110,17 @@ class Damagefield: public Cardfield {
 };
 
 //INSERT HEALTH CLASS HERE
+class Healthfield: public Cardfield {
+  public:
+    Healthfield(): Cardfield() {}
+};
+
 
 int main() {
     Cardfield cards;
     Costfield costs;
     Damagefield damage;
+    Healthfield health;
     string function, line, type2;
     int64 type;
 
@@ -141,18 +155,27 @@ int main() {
         if (type2 == "DAMAGE_ARMY")type = 32;
         if (type2 == "DAMAGE_ARMY_OF_THE_DEAD") type = 64;
         if (type2 == "DAMAGE_DRAGON") type = 128;
-//INSERT FUNCTIONS HERE
- if (function == "ADD") {
+  	    if (type2 == "HEALTH_GOBLIN_KNIGHT") type = 1;
+        if (type2 == "HEALTH_VETERAN_GOBLIN_KNIGHT") type = 2;
+        if (type2 == "HEALTH_MOUNTAIN_GIANT") type = 4;
+        if (type2 == "HEALTH_MIDGET_GIANT") type = 8;
+        if (type2 == "HEALTH_MIDGET_ARMY") type = 16;
+        if (type2 == "HEALTH_ARMY") type = 32;
+        if (type2 == "HEALTH_ARMY_OF_THE_DEAD") type = 64;
+        if (type2 == "HEALTH_DRAGON")type = 128;
+        if (function == "ADD") {
             if (type2[0]) {
                 cards += (type);
                 costs -= (type);
                 damage += (type);
+		        health += (type);
             }
         } else if (function == "DELETE") {
             if (type2[0]) {
                 cards -= (type);
                 costs += (type);
                 damage -= (type);
+		        health -= (type);
 
             }
         } else throw runtime_error("Invalid Input");
