@@ -54,6 +54,27 @@ class Cardfield {
     int64 field;
   public:
     Cardfield(): field(0) {}
+    int64 cardselect() {
+        if (field) {
+            if (field >= DRAGON) {
+                cout << "DRAGON" << endl;
+            } else if (field < DRAGON && field > ARMY) {
+                cout << "ARMY_OF_THE_DEAD" << endl;
+            } else if (field < ARMY_OF_THE_DEAD && field > MIDGET_ARMY) {
+                cout << "ARMY" << endl;
+            } else if (field < ARMY && field > MIDGET_GIANT) {
+                cout << "MIDGET_ARMY" << endl;
+            } else if (field < MIDGET_ARMY && field > MOUNTAIN_GIANT) {
+                cout << "MIDGET_GIANT" << endl;
+            } else if (field < MIDGET_GIANT && field > VETERAN_GOBLIN_KNIGHT) {
+                cout << "MOUNTAIN_GIANT" << endl;
+            } else if (field < MOUNTAIN_GIANT && field > GOBLIN_KNIGHT) {
+                cout << "VETERAN_GOBLIN_KNIGHT)" << endl;
+            } else if (field == GOBLIN_KNIGHT) {
+                cout << "GOBLIN_KNIGHT" << endl;
+            }
+        }
+    }
     void foo() {
         if (field)
             cout << "My deck is: " << field << "\n";
