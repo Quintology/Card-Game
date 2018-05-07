@@ -29,13 +29,13 @@ struct Login {
 
 void file_into_hash() {
 
-    ofstream myfile;
+    ifstream myfile;
     myfile.open("login.txt");
     while (myfile){
     string user;
     string pass;
-    myfile >> user;
-    myfile >> pass;
+    getline(myfile, user);
+    getline(myfile, pass);
     Login c;
     c.username = user;
     c.password = pass;
