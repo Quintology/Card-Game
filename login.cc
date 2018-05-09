@@ -6,8 +6,6 @@
 using namespace std;
 
 
- unordered_map<int, Login > database;
-
 void writeFile(string s) {
     ofstream myfile;
     myfile.open("login.txt");
@@ -25,9 +23,10 @@ struct Login {
     }
 };
 
+vector <Login> vec; 
 
 
-void file_into_hash() {
+void file_into_vector() {
 
     ifstream myfile;
     myfile.open("login.txt");
@@ -36,13 +35,12 @@ void file_into_hash() {
     string pass;
     getline(myfile, user);
     getline(myfile, pass);
-    Login c;
-    c.username = user;
-    c.password = pass;
-    c.deck = (rand() % 128) + 1;
+    Login d;
+    d.username = user;
+    d.password = pass;
+    d.deck = (rand() % 128) + 1;
     int i = 0;
-    database <i, c >;
-    i++;
+    vec.push_back(c);
     }
     myfile.close();
 }
@@ -64,11 +62,15 @@ void login_hash() {
         cin >> username;
         cout << "Enter new password" << endl;
         cin >> password;
-        if (database.find(c.username)) {
-            die();
-        }
+        Login f;
+        for (auto i :: vec){
+        if (i == f)die();
+        else {
         writeFile(username);
         writeFile(password);
+        break;
+        }
+        }
     }
     // if not look up username and password in database;
     else {
