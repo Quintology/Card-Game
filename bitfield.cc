@@ -13,6 +13,10 @@ enum card_types {
     ARMY = 32,
     ARMY_OF_THE_DEAD = 64,
     DRAGON = 128
+    BALROG = 256,
+    DEMON_FROG = 512,
+    DEVIL_DUCK = 1024,
+    MIGHT_MANATEE = 2048,	
 };
 
 //cost of cards
