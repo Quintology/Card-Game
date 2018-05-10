@@ -5,16 +5,37 @@ using namespace std;
 int damage(string card) {
     if (card == "goblin") return 3;
     else if (card == "veteran_goblin") return 6; //might try to use getlines so people don't need to type in an _ to summon a card
-    else cout << "Why don't you try again." << endl;
-//  exit(1);
+    else if (card == "mountain_giant") return 6;
+    else if (card == "midget_giant") return 5;
+    else if (card == "midget_army")  return 8;
+    else if (card == "army") return 10;
+    else if (card == "army_of_the_dead") return 12;
+    else if (card == "dragon")  return 15;
 }
 
 int health(string card) {
-    if (card == "goblin")return 2;
-    else if (card == "veteran_goblin") return 4;
-    else cout << "You really have chosen nothing." << endl;
+     if (card == "list") {
+        cout << "goblin" << endl;
+        cout << "veteran_goblin" << endl;
+        cout << "mountain_giant" << endl;
+        cout << "midget_giant" << endl;
+        cout << "midget_army" << endl;
+        cout << "army" << endl;
+        cout << "army_of_the_dead" << endl;
+        cout << "dragon" << endl;
+    } else if (card == "goblin")return 2;
+    else if (card == "veteran_goblin") return 3;
+    else if (card == "mountain_giant") return 5;
+    else if (card == "midget_giant") return 4;
+    else if (card == "midget_army")  return 7;
+    else if (card == "army") return 12;
+    else if (card == "army_of_the_dead") return 15;
+    else if (card == "dragon")  return 20;
+    else
+        cout << "You really have chosen nothing. Why don't you try again." << endl;
     exit(1);
 }
+
 
 
 int main() {
@@ -26,7 +47,7 @@ int main() {
     int field1_health;
 
     cout << "Enter card name to place on field" << endl;
-
+    cout << "If you need a list of cards, type in ''list''" << endl;
     cin >> name;
 
     if (f1 == false) {
