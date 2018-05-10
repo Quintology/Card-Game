@@ -7,13 +7,23 @@ void die(){
       cout << "Invalid Input" << endl;
       exit(1);
 }
+void writeFile(string s) {
+    myfile << s << endl;
+}
+
+
 
 
 int main(){
-
-
-
-
-return 0;
-
+    ofstream myfile;
+    myfile.open("login.txt");
+    while (true){
+    //game goes into an infinite loop
+    
+    
+    
+    
+    
+    }
+    myfile.close();
 }
