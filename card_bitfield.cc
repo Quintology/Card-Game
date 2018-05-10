@@ -13,6 +13,10 @@ enum card_types {
     ARMY = 32,
     ARMY_OF_THE_DEAD = 64,
     DRAGON = 128
+    BALROG = 256,
+    DEMON_FROG = 512,
+    DEVIL_DUCK = 1024,
+    MIGHT_MANATEE = 2048,	    
 };
 
 //cost of cards
@@ -25,6 +29,10 @@ const int COST_MIDGET_ARMY = 16;
 const int COST_ARMY = 32;
 const int COST_ARMY_OF_THE_DEAD = 64;
 const int COST_DRAGON = 128;
+const int BALROG = 256,
+const int DEMON_FROG = 512,
+const int DEVIL_DUCK = 1024,
+const int MIGHT_MANATEE = 2048,
 
 //damage of cards
 //IDEA: COPY THE NAME OF THE CARD TYPES AND ADD DAMAGE_ AT THE BEGINNING OF THE CONSTANT INT
@@ -36,6 +44,10 @@ const int COST_DRAGON = 128;
 #define DAMAGE_ARMY = 32,
 #define DAMAGE_ARMY_OF_THE_DEAD = 64,
 #define DAMAGE_DRAGON = 128
+#define DAMAGE_BALROG = 256,
+#define DAMAGE_DEMON_FROG = 512,
+#define DAMAGE_DEVIL_DUCK = 1024,
+#define DAMAGE_MIGHT_MANATEE = 2048,
 
 //health of cards
 const int HEALTH_GOBLIN_KNIGHT = 1;
@@ -46,6 +58,10 @@ const int HEALTH_MIDGET_ARMY = 16;
 const int HEALTH_ARMY = 32;
 const int HEALTH_ARMY_OF_THE_DEAD = 64;
 const int HEALTH_DRAGON = 128;
+const int HEALTH_BALROG = 256,
+const int HEALTH_DEMON_FROG = 512,
+const int HEALTH_DEVIL_DUCK = 1024,
+const int HEALTH_MIGHT_MANATEE = 2048,
 
 typedef int64_t int64;
 
@@ -56,20 +72,20 @@ class Cardfield {
     Cardfield(): field(0) {}
     int64 cardselect() {
         if (field) {
-            if (field >= DRAGON) {
+            if (field >= MIGHTY_MANATEE) {
+                cout << "MIGHTY_MANATEE" << endl;
+            } else if (field < MIGHTY_MANATEE && field > DEMON_FROG) {
+                cout << "DEVIL_DUCK" << endl;
+            } else if (field < DEVIL_DUCK && field > BALROG) {
+                cout << "DEMON_FROG" << endl;
+            } else if (field < DEMON_FROG && field > DRAGON) {
+                cout << "BALROG" << endl;
+            } else if (field < BALROG && field > ARMY_OF_THE_DEAD) {
                 cout << "DRAGON" << endl;
             } else if (field < DRAGON && field > ARMY) {
                 cout << "ARMY_OF_THE_DEAD" << endl;
             } else if (field < ARMY_OF_THE_DEAD && field > MIDGET_ARMY) {
                 cout << "ARMY" << endl;
-            } else if (field < ARMY && field > MIDGET_GIANT) {
-                cout << "MIDGET_ARMY" << endl;
-            } else if (field < MIDGET_ARMY && field > MOUNTAIN_GIANT) {
-                cout << "MIDGET_GIANT" << endl;
-            } else if (field < MIDGET_GIANT && field > VETERAN_GOBLIN_KNIGHT) {
-                cout << "MOUNTAIN_GIANT" << endl;
-            } else if (field < MOUNTAIN_GIANT && field > GOBLIN_KNIGHT) {
-                cout << "VETERAN_GOBLIN_KNIGHT)" << endl;
             } else if (field == GOBLIN_KNIGHT) {
                 cout << "GOBLIN_KNIGHT" << endl;
             }
