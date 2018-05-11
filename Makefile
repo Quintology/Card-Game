@@ -1,7 +1,5 @@
-a.out: main.cc battle.cc
-	g++ -std=c++11 main.cc battle.cc
+a.out: cardchoosing.cc cardchoosing.h
+        g++ -std=c++11 cardchoosing.cc cardchoosing.h
 
 clean:
-	rm -f a.out core *.o
-  
-  //just throwing some sorta Makefile right now
+        rm -f a.out core *.o
