@@ -5,3 +5,6 @@
 #include "cardchoosing.h"
 using namespace std;
 
+void battle(){
+  
+}
