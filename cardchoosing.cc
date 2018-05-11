@@ -56,7 +56,7 @@ int cost(string card) {
 //alfredo doing dis main
 int main() {
 	//temp deck
-	vector<string> deck = {"goblin", "dragon", "alfredo", "alfredog", "alfredope"};
+	vector<string> deck = {"goblin", "dragon", "veteran_goblin", "mountain_giant", "midget_giant", "midget_army", "army"};
 	vector<string> hand = {};
 //	for (int i = 0; i < deck.size(); i++) {
 //		cout << deck[i] << endl;
@@ -97,23 +97,46 @@ int main() {
 
 
 	while (enemy_health <= 0 or player_health <= 0) {
+		int energy = 5;
+		cout << "----------Your hand----------" << endl;
+		for (int i = 0; i < hand.size(); i++) {
+			cout << hand[i] << endl;
+		}
+		cout << "-----------------------------" << endl;
 
+//phase 1 draw a card
+		hand.push_back(deck.back());
+		deck.pop_back();
+		cout << hand.back() << " added to your hand" << endl;
+//phase 2 place card
+
+	while (name != "END") {
 		cout << "Enter card name to place on field" << endl;
-		cout << "If you need a list of cards, type in ''list''" << endl;
+		cout << "Enter (END) to end your turn"<<endl;
+		cout << "Energy left: "<<energy<<endl;
 		cin >> name;
 
-		if (f1 == false) {
-			field1 = name;
+			if (f1 == false) {
+				field1 = name;
 
-			field1_damage = damage(name);  //(had to swap these around)
-			field1_health = health(name);  //(it was displaying the damage as health and the health as damage)
+				field1_damage = damage(name);  //(had to swap these around)
+				field1_health = health(name);  //(it was displaying the damage as health and the health as damage)
+			}
+
+
+			cout << "You have chosen: " << field1 << endl;
+			cout << field1 << " Damage: " << field1_damage << endl;
+			cout << field1 << " Health: " << field1_health << endl;
 		}
+//phase 3 attack
 
 
-		cout << "You have chosen: " << field1 << endl;
-		cout << field1 << " Damage: " << field1_damage << endl;
-		cout << field1 << " Health: " << field1_health << endl;
+
+
+
+
 	}
 //end of while loop
 	return 0;
 }
+
