@@ -3,6 +3,7 @@
 #include <vector>
 #include "ll.h"
 #include "cardchoosing.h"
+#include "fight.cc"
 using namespace std;
 
 void battle(){
@@ -50,6 +51,7 @@ void battle(){
 		//hand.push_back(deck.back());
 		hand.insert_at_beginning(deck.back());
 		deck.pop_back();
+		fight();
 		//cout << hand.back() << " added to your hand" << endl;
 	}
 
