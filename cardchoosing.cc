@@ -53,17 +53,18 @@ void battle(){
 		//cout << hand.back() << " added to your hand" << endl;
 	}
 
-	cin >> name;
+	
 	while (enemy_health > 0 and player_health > 0) {
 		int energy = 5;
-		cout << hand.remove_card(name);
-
+		//cout << hand.remove_card(name);
+		cout<<"Eneter a card you want to place on the field"<<endl;
+		cout<<"midget_army, midget_giant, army"<<endl;
 		cout << "----------Your hand----------" << endl;
 		//	for (int i = 0; i < hand.size(); i++) {
 		//		cout << hand[i] << endl;
 		//	}
 		cout << "---------------------------- -" << endl;
-
+		cin >> name;
 		//phase 1 draw a card
 		hand.insert_at_beginning(deck.back());
 		deck.pop_back();
@@ -76,7 +77,7 @@ void battle(){
 			cout << "Energy left: " << energy << endl;
 			cin >> name;
 			//4 card field
-			cout <<	hand.remove_card(name);
+		//	cout <<	hand.remove_card(name);
 
 			if (f1 == false) {
 				field1 = name;
@@ -85,20 +86,21 @@ void battle(){
 				field1_cost = cost(name);
 
 				//hand.remove_card(name);
-				cout << hand.check();
+		//		cout << hand.check();
 
 				//				for (int i = 0; i < hand.size(); i++) {
 				//					cout << hand[i] << endl;
 				//				}
-
+			cout << " You have chosen: " << field1 << endl;
+			cout << field1 << "Damage: " << field1_damage << endl;
+			cout << field1 << "Health: " << field1_health << endl;
 				f1 = true;
+
 			}
 
 
 
-			cout << " You have chosen: " << field1 << endl;
-			cout << field1 << "Damage: " << field1_damage << endl;
-			cout << field1 << "Health: " << field1_health << endl;
+		
 		}
 		//phase 3 attack
 
@@ -109,6 +111,6 @@ void battle(){
 
 	}
 	//end of while loop
-	return 0;
+	
 
 }
