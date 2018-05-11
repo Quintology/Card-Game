@@ -14,7 +14,7 @@ int main() {
 	loginSystem();
 	battle();
 	while (true) {
-		cout << "game" << endl;
+		cout << " end of game" << endl;
 		break;
 
 
