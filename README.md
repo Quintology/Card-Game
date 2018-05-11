@@ -32,7 +32,7 @@ Sawyer Hannel: Bitfield to hold card damage, health, and cost.
 Abdullah Qarni: Data structure to hold user decks
 
 **************************************************************************************
-accounts.txt created by Jacob Frazier
+accounts.txt created by Jacob Fraizer
 
 battle.cc created by Alfredo Gonzalez
 
@@ -48,12 +48,12 @@ data1 created by Abdullah Qarni
 
 data2 created by Abdullah Qarni
 
-hashlogin.cc created by Jacob Frazier
+hashlogin.cc created by Jacob Fraizer
 
-login.cc created by Jacob Frazier
+login.cc created by Jacob Fraizer
 
-login.txt created by Jacob Frazier
+login.txt created by Jacob Fraizer
 
-main.cc created by Jacob Frazier
+main.cc created by Jacob Fraizer
 
 Makefile created by Christopher Quinto
