@@ -13,7 +13,7 @@ int main(){
       loginSystem();
       while (true){
       cout << "game" << endl;
-    
+      break;
     
     
     
