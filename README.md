@@ -62,4 +62,4 @@ main.cc created by Jacob Fraizer & Alfedo Gonzalez
 
 Makefile (unused) created by Christopher Quinto
 
-randomMoves.txt created by Jacon Fraizer
+randomMoves.txt created by Jacob Fraizer
