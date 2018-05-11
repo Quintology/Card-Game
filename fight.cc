@@ -46,7 +46,7 @@ while (true) {
                 blow = rand() %100;
         cout << "   and dealt  " << blow << "  damage" << endl << endl << endl;
             health = health - blow;
-        cout << "Your health is " << health << endl;
+        cout << "Your health is " << health << endl << endl;
             if (health <= 0) {
     cout << "Your health = 0 and therefore you have died, please try again" << endl;
         exit(1);
