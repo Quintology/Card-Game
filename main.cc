@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include "login.cc"
 #include "cardchoosing.cc"
+#include "card_bitfield.cc"
 
 using namespace std;
 
