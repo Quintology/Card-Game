@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 
@@ -16,14 +17,13 @@ int energy;
 Cardfield cards;
 string card_name;
 for(int i=0; i<3;i++){
+	card = deck_vec.at(i);
+        deck_vec.erase(deck_vec.begin())
+	return i;	
 	//pops of the first 3 cards(each user begins with 3 cards.
 }
 
 
-
-
-while(cin){
-cout<<"player 1's turn"<<endl;
 //Need a stack or something to pop the cards off the deck lol.
 
 //draw card
