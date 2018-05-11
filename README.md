@@ -34,7 +34,7 @@ Abdullah Qarni: Data structure to hold user decks
 **************************************************************************************
 accounts.txt created by Jacob Fraizer
 
-battle.cc created by Alfredo Gonzalez
+battle.cc (unused) created by Alfredo Gonzalez
 
 bitfield.cc (unused) created by Sawyer Hannel
 
@@ -44,16 +44,18 @@ cardchoosing.cc created by Alfredo Gonzalez
 
 cardchoosing.h created by Christopher Quinto
 
-data1 created by Abdullah Qarni
+data1.cc (unused) created by Abdullah Qarni
 
-data2 created by Abdullah Qarni
+data2.cc (unused) created by Abdullah Qarni
 
-hashlogin.cc created by Jacob Fraizer
+hashlogin.cc (unused) created by Jacob Fraizer
+
+ll.h created by Alfredo Gonzalez
 
 login.cc created by Jacob Fraizer
 
 login.txt created by Jacob Fraizer
 
-main.cc created by Jacob Fraizer
+main.cc created by Jacob Fraizer & Alfedo Gonzalez
 
-Makefile created by Christopher Quinto
+Makefile (unused) created by Christopher Quinto
