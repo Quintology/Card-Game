@@ -11,6 +11,7 @@ using namespace std;
 
 int main(){
       loginSystem();
+      battle();
       while (true){
       cout << "game" << endl;
       break;
