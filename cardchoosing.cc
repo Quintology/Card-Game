@@ -37,31 +37,60 @@ int health(string card) {
 }
 
 
-
+//alfredo doing dis main
 int main() {
-
-    string name;
-    bool f1 = false;
-    string field1;
-    int field1_damage;
-    int field1_health;
-
-    cout << "Enter card name to place on field" << endl;
-    cout << "If you need a list of cards, type in ''list''" << endl;
-    cin >> name;
-
-    if (f1 == false) {
-        field1 = name;
-//      field1_damage = health(name); (original code)
-//      field1_health = damage(name);
-        field1_damage = damage(name);  //(had to swap these around)
-        field1_health = health(name);  //(it was displaying the damage as health and the health as damage)
-    }
+	//temp deck
+	vector<string> deck = {"goblin", "dragon", "alfredo", "alfredog, alfredope"};
+//	for (int i = 0; i < deck.size(); i++) {
+//		cout << deck[i] << endl;
+//	}
+	string name;
 
 
-    cout << "You have chosen: " << field1 << endl;
-    cout << field1 << " Damage: " << field1_damage << endl;
-    cout << field1 << " Health: " << field1_health << endl;
+	//field card slots
+	bool f1 = false;
+	bool f2 = false;
+	bool f3 = false;
+	bool f4 = false;
+	//name of the field card
+	string field1;
+	string field2;
+	string field3;
+	string field4;
+	//hold damage, health, cost of field card;
+	int field1_damage;
+	int field1_health;
+	int field1_cost;
+	int field2_damage;
+	int field2_health;
+	int field2_cost;
+	int field3_damage;
+	int field3_health;
+	int field3_cost;
+	int field4_damage;
+	int field4_health;
+	int field4_cost;
 
-    return 0;
+
+
+
+	cout << "Enter card name to place on field" << endl;
+	cout << "If you need a list of cards, type in ''list''" << endl;
+	cin >> name;
+
+	if (f1 == false) {
+		field1 = name;
+
+		field1_damage = damage(name);  //(had to swap these around)
+		field1_health = health(name);  //(it was displaying the damage as health and the health as damage)
+	}
+
+
+	cout << "You have chosen: " << field1 << endl;
+	cout << field1 << " Damage: " << field1_damage << endl;
+	cout << field1 << " Health: " << field1_health << endl;
+
+	return 0;
 }
+
+ 
