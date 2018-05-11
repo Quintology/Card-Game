@@ -8,10 +8,25 @@ struct Account {
 	std::string password;
 };
 void die() {
-	cout << "Invalid Input" << endl;
+	cout << "program quit" << endl;
 	exit(0);
 }
 vector<Account> accounts;
+
+
+void vecTofile() {
+	ofstream file;
+	if (!file) cout << "there was an error reading the file" << endl;
+	file.open("accounts.txt");
+	for (auto i : accounts) {
+		file << i.username << " " << i.password << endl;
+	}
+	file.close();
+	cout << "usernames and passwords saved!" << endl;
+
+}
+
+
 void pushVec() {
 	ifstream file("accounts.txt");
 	if (!file) {
@@ -49,8 +64,9 @@ void testVec(string userT, string passT) {
 		if (i.username == test.username) {
 			cout << "username already exists" << endl;
 			die();//insert die function
-		} else accounts.push_back(test);
+		}
 	}
+	accounts.push_back(test);
 }
 bool Login(Account f) {
 	for (int i = 0; i < accounts.size(); i++) {
@@ -65,9 +81,8 @@ bool Login(Account f) {
 
 
 
-int main() {
+void loginSystem() {
 	pushVec();
-	printVec();
 	cout << "are you a new user? y/n" << endl;
 	char c;
 	cin >> c;
@@ -82,10 +97,14 @@ int main() {
 		cout << "Please re-enter your password" << endl;
 		string pass2;
 		cin >> pass2;
+	//	cout << "vec size = " << accounts.size() << endl;
 		if (pass1 != pass2) die();
 		testVec(username, pass1);
+	//	cout << "vec size = " << accounts.size() << endl;
+		cout << "New user created" << endl;
+		vecTofile();
 		//insert a write into a file function
-	} else {
+	} else if (c == 'n' || c == 'N') {
 		cout << "enter your username" << endl;
 		string us;
 		cin >> us;
@@ -95,12 +114,11 @@ int main() {
 		Account login = {us, pa};
 		if (!Login(login)) die();
 		//check old users
-	}
-	while (true) {
-		cout << "you made it to the main loop" << endl;
-		break;
-	}
+	} else die();
 
 }
+int main() {
+	loginSystem();
+	cout << "you made it" << endl;
 
-
+}
