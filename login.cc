@@ -117,8 +117,4 @@ void loginSystem() {
 	} else die();
 
 }
-int main() {
-	loginSystem();
-	cout << "you made it" << endl;
 
-}
