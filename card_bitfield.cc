@@ -134,6 +134,18 @@ class Costfield: public Cardfield {
             if (field < COST_DRAGON) {
                 cout << "I don't have enough energy to summon Dragon.\n";
             }
+	    if (field < COST_BALROG) {
+                cout << "I don't have enough energy to summon Balrog.\n";
+            }
+	    if (field < COST_DEMON_FROG) {
+                cout << "I don't have enough energy to summon Demon Frog.\n";
+            }
+	    if (field < COST_DEVIL_DUCK) {
+                cout << "I don't have enough energy to summon Devil Duck.\n";
+            }
+	    if (field < COST_MIGHTY_MANATEE) {
+                cout << "I don't have enough energy to summon Mighty Manatee.\n";
+            }
         }
         if (!field)
             throw runtime_error("Cannot select card when we don't have energy!");
@@ -176,6 +188,10 @@ int main() {
         if (type2 == "ARMY") type = 32;
         if (type2 == "ARMY_OF_THE_DEAD") type = 64;
         if (type2 == "DRAGON") type = 128;
+	if (type2 == "BALROG") type = 256,
+	if (type2 == "DEMON_FROG") type = 512,
+	if (type2 == "DEVIL_DUCK") type = 1024,
+	if (type2 == "MIGHT_MANATEE") type = 2048,    
         if (type2 == "COST_GOBLIN_KNIGHT") type = 1;
         if (type2 == "COST_VETERAN_GOBLIN_KNIGHT") type = 2;
         if (type2 == "COST_MOUNTAIN_GIANT") type = 4;
@@ -184,6 +200,10 @@ int main() {
         if (type2 == "COST_ARMY") type = 32;
         if (type2 == "COST_ARMY_OF_THE_DEAD") type = 64;
         if (type2 == "COST_DRAGON")type = 128;
+	if (type2 == "COST_BALROG") type = 256,
+	if (type2 == "COST_DEMON_FROG") type = 512,
+	if (type2 == "COST_DEVIL_DUCK") type = 1024,
+	if (type2 == "COST_MIGHT_MANATEE") type = 2048, 
         if (type2 == "DAMAGE_GOBLIN_KNIGHT") type = 1;
         if (type2 == "DAMAGE_VETERAN_GOBLIN_KNIGHT") type = 2;
         if (type2 == "DAMAGE_MOUNTAIN_GIANT") type = 4;
@@ -192,6 +212,10 @@ int main() {
         if (type2 == "DAMAGE_ARMY")type = 32;
         if (type2 == "DAMAGE_ARMY_OF_THE_DEAD") type = 64;
         if (type2 == "DAMAGE_DRAGON") type = 128;
+	if (type2 == "DAMAGE_BALROG") type = 256,
+	if (type2 == "DAMAGE_DEMON_FROG") type = 512,
+	if (type2 == "DAMAGE_DEVIL_DUCK") type = 1024,
+	if (type2 == "DAMAGE_MIGHT_MANATEE") type = 2048, 
   	if (type2 == "HEALTH_GOBLIN_KNIGHT") type = 1;
         if (type2 == "HEALTH_VETERAN_GOBLIN_KNIGHT") type = 2;
         if (type2 == "HEALTH_MOUNTAIN_GIANT") type = 4;
@@ -200,6 +224,10 @@ int main() {
         if (type2 == "HEALTH_ARMY") type = 32;
         if (type2 == "HEALTH_ARMY_OF_THE_DEAD") type = 64;
         if (type2 == "HEALTH_DRAGON")type = 128;
+	if (type2 == "HEALTH_BALROG") type = 256,
+	if (type2 == "HEALTH_DEMON_FROG") type = 512,
+	if (type2 == "HEALTH_DEVIL_DUCK") type = 1024,
+	if (type2 == "HEALTH_MIGHT_MANATEE") type = 2048, 
         if (function == "ADD") {
             if (type2[0]) {
                 cards += (type);
