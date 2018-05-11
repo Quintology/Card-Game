@@ -1,29 +1,21 @@
 #include <iostream>
 #include <unordered_map>
+#include <"login.cc">
 
 using namespace std; 
 
-void die(){
-      cout << "Invalid Input" << endl;
-      exit(1);
-}
-void writeFile(string s) {
-    myfile << s << endl;
-}
+
 
 
 
 
 int main(){
-    ofstream myfile;
-    myfile.open("login.txt");
-    while (true){
-    //game goes into an infinite loop
-    
+      loginSystem();
+      while (true){
+      cout << "game" << endl;
     
     
     
     
     }
-    myfile.close();
 }
