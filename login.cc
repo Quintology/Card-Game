@@ -1,103 +1,106 @@
 #include <iostream>
+#include <string>
 #include <fstream>
-#include <unordered_map>
-#include <cstdlib>
-
+#include <vector>
 using namespace std;
-
-
-void writeFile(string s) {
-    ofstream myfile;
-    myfile.open("login.txt");
-    cout << "Write into the file" << endl;
-    cin >> s;
-    myfile << s << endl;
-    myfile.close();
-}
-struct Login {
-    std::string username;
-    std::string password;
-    int deck = 0;
-    bool operator< (const Login &rhs) const {
-        return deck > rhs.deck;
-    }
+struct Account {
+	std::string username;
+	std::string password;
 };
+void die() {
+	cout << "Invalid Input" << endl;
+	exit(0);
+}
+vector<Account> accounts;
+void pushVec() {
+	ifstream file("accounts.txt");
+	if (!file) {
+		std::cout << "There was an error reading the file!" << std::endl;
+		//return 1;
+	}
+	string line;
+	while (getline(file, line)) {
+		if (line.empty()) {
+			continue;
+		}
+		auto it = line.find(" ");
+		//Usernames and passwords are separated by one space.
+		if (it != std::string::npos) {
+			std::string username = line.substr(0, it);
+			std::string password = line.substr(it + 1, line.npos);
+			Account account = { username, password };
+			accounts.push_back(account);
+		}
+	}
+}
 
-vector <Login> vec; 
+void printVec() {
+	for (int i = 0; i < accounts.size(); i++) {
+		cout << i << endl ;
+		cout << accounts.at(i).username << endl;
+		cout << accounts.at(i).password << endl;
+		cout << "end of account" << endl;
+	}
+}
 
-
-void file_into_vector() {
-
-    ifstream myfile;
-    myfile.open("login.txt");
-    while (myfile){
-    string user;
-    string pass;
-    getline(myfile, user);
-    getline(myfile, pass);
-    Login d;
-    d.username = user;
-    d.password = pass;
-    d.deck = (rand() % 128) + 1;
-    int i = 0;
-    vec.push_back(c);
-    }
-    myfile.close();
+void testVec(string userT, string passT) {
+	Account test = {userT, passT};
+	for (auto i : accounts) {
+		if (i.username == test.username) {
+			cout << "username already exists" << endl;
+			die();//insert die function
+		} else accounts.push_back(test);
+	}
+}
+bool Login(Account f) {
+	for (int i = 0; i < accounts.size(); i++) {
+		if (accounts.at(i).username == f.username && accounts.at(i).password == f.password) {
+			cout << "Login Successful" << endl;
+			return true;
+		}
+	}
+	cout << "Login unsuccessful" << endl;
+	return false;
 }
 
 
 
-
-
-void login_hash() {
-    cout << "Welcome to the the card Game" << endl;
-    cout << "Are you a new user? (Y/N)" << endl;
-    char c;
-    cin >> c;
-    // if yes create new user
-    if (c == 'y' || c == 'Y') {
-        string username;
-        string password;
-        cout << "Enter new username" << endl;
-        cin >> username;
-        cout << "Enter new password" << endl;
-        cin >> password;
-        Login f;
-        for (auto i :: vec){
-        if (i == f)die();
-        else {
-        writeFile(username);
-        writeFile(password);
-        break;
-        }
-        }
-    }
-    // if not look up username and password in database;
-    else {
-        // look up username and login from database.
-        string username;
-        string password;
-        cout << "Enter your username" << endl;
-        cin >> username;
-        cout << "Enter your password" << endl;
-        cin >> password;
-        if (database.find(c.username)) {
-            if (database[c.username] == database[c.password]) {
-                cout << "You are now logged in" << endl;
-            }
-        } else die();
-
-    }
-
-
-
-
-}
 int main() {
-
-    login_hash();
-
-
+	pushVec();
+	printVec();
+	cout << "are you a new user? y/n" << endl;
+	char c;
+	cin >> c;
+	if (c == 'y' || c == 'Y') {
+		//new user
+		cout << "Enter Unique Username" << endl;
+		string username;
+		cin >> username;
+		cout << "Enter a password" << endl;
+		string pass1;
+		cin >> pass1;
+		cout << "Please re-enter your password" << endl;
+		string pass2;
+		cin >> pass2;
+		if (pass1 != pass2) die();
+		testVec(username, pass1);
+		//insert a write into a file function
+	} else {
+		cout << "enter your username" << endl;
+		string us;
+		cin >> us;
+		cout << "enter your password" << endl;
+		string pa;
+		cin >> pa;
+		Account login = {us, pa};
+		if (!Login(login)) die();
+		//check old users
+	}
+	while (true) {
+		cout << "you made it to the main loop" << endl;
+		break;
+	}
 
 }
+
 
