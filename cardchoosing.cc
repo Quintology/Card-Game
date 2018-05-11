@@ -40,12 +40,14 @@ int health(string card) {
 //alfredo doing dis main
 int main() {
 	//temp deck
-	vector<string> deck = {"goblin", "dragon", "alfredo", "alfredog, alfredope"};
+	vector<string> deck = {"goblin", "dragon", "alfredo", "alfredog", "alfredope"};
+	vector<string> hand = {};
 //	for (int i = 0; i < deck.size(); i++) {
 //		cout << deck[i] << endl;
 //	}
 	string name;
-
+	int player_health = 50;
+	int enemy_health = 50;
 
 	//field card slots
 	bool f1 = false;
@@ -70,27 +72,32 @@ int main() {
 	int field4_damage;
 	int field4_health;
 	int field4_cost;
-
-
-
-
-	cout << "Enter card name to place on field" << endl;
-	cout << "If you need a list of cards, type in ''list''" << endl;
-	cin >> name;
-
-	if (f1 == false) {
-		field1 = name;
-
-		field1_damage = damage(name);  //(had to swap these around)
-		field1_health = health(name);  //(it was displaying the damage as health and the health as damage)
+	//insert 3 cards for first turn
+	for (int i = 0; i < 3; i++) {
+		hand.push_back(deck.back());
+		deck.pop_back();
+		cout << hand.back() << " added to your hand" << endl;
 	}
 
 
-	cout << "You have chosen: " << field1 << endl;
-	cout << field1 << " Damage: " << field1_damage << endl;
-	cout << field1 << " Health: " << field1_health << endl;
+	while (enemy_health <= 0 or player_health <= 0) {
 
+		cout << "Enter card name to place on field" << endl;
+		cout << "If you need a list of cards, type in ''list''" << endl;
+		cin >> name;
+
+		if (f1 == false) {
+			field1 = name;
+
+			field1_damage = damage(name);  //(had to swap these around)
+			field1_health = health(name);  //(it was displaying the damage as health and the health as damage)
+		}
+
+
+		cout << "You have chosen: " << field1 << endl;
+		cout << field1 << " Damage: " << field1_damage << endl;
+		cout << field1 << " Health: " << field1_health << endl;
+	}
+//end of while loop
 	return 0;
 }
-
- 
