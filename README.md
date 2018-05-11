@@ -30,3 +30,30 @@ Christopher Quinto: Bitfield holding card list
 Sawyer Hannel: Bitfield to hold card damage, health, and cost.
 
 Abdullah Qarni: Data structure to hold user decks
+
+**************************************************************************************
+accounts.txt created by Jacob Frazier
+
+battle.cc created by Alfredo Gonzalez
+
+bitfield.cc (unused) created by Sawyer Hannel
+
+cardbitfield.cc (unused) created by Christopher Quinto & Sawyer Hannel
+
+cardchoosing.cc created by Alfredo Gonzalez
+
+cardchoosing.h created by Christopher Quinto
+
+data1 created by Abdullah Qarni
+
+data2 created by Abdullah Qarni
+
+hashlogin.cc created by Jacob Frazier
+
+login.cc created by Jacob Frazier
+
+login.txt created by Jacob Frazier
+
+main.cc created by Jacob Frazier
+
+Makefile created by Christopher Quinto
