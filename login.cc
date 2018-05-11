@@ -118,3 +118,16 @@ void loginSystem() {
 
 }
 
+struct userDeck {
+    string username;
+    vector <string> decks;
+};
+
+
+void accountDeck(vector<Account>vec, vector<string> null) {
+    vector <userDeck> poop;
+    for (auto i : vec) {
+        userDeck temp = {i.username , null};
+        poop.push_back(temp);
+    }
+}
