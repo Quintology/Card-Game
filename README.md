@@ -48,6 +48,8 @@ data1.cc (unused) created by Abdullah Qarni
 
 data2.cc (unused) created by Abdullah Qarni
 
+fight.cc created by Jacob Fraizer
+
 hashlogin.cc (unused) created by Jacob Fraizer
 
 ll.h created by Alfredo Gonzalez
@@ -59,3 +61,5 @@ login.txt created by Jacob Fraizer
 main.cc created by Jacob Fraizer & Alfedo Gonzalez
 
 Makefile (unused) created by Christopher Quinto
+
+randomMoves.txt created by Jacon Fraizer
