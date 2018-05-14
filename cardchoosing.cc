@@ -3,108 +3,96 @@
 #include <vector>
 #include "ll.h"
 #include "cardchoosing.h"
-#include "fight.cc"
 using namespace std;
 
 void battle(){
   	//temp deck
 	vector<string> deck = {"goblin", "dragon", "veteran_goblin", "mountain_giant", "midget_giant", "midget_army", "army"};
-
-	//	accountDeck(accounts, deck);
-
-
-
-	//	std::vector<string> hand = {};
-	//	for (int i = 0; i < deck.size(); i++) {
-	//		cout << deck[i] << endl;
-	//	}
+	char choice;
 	string name = "";
 	int player_health = 50;
 	int enemy_health = 50;
+	
 
-	//field card slots
-	bool f1 = false;
-	bool f2 = false;
-	bool f3 = false;
-	bool f4 = false;
-	//name of the field card
-	string field1;
-	string field2;
-	string field3;
-	string field4;
-	//hold damage, health, cost of field card;
-	int field1_damage;
-	int field1_health;
-	int field1_cost;
-	int field2_damage;
-	int field2_health;
-	int field2_cost;
-	int field3_damage;
-	int field3_health;
-	int field3_cost;
-	int field4_damage;
-	int field4_health;
-	int field4_cost;
 	List hand;
+	List field;
+	List enemy_hand;
+	List enemy_field;
+	enemy_field.insert_at_beginning("dragon", damage("dragon"), health("dragon"));
 	//insert 3 cards for first turn
 	for (int i = 0; i < 3; i++) {
 		//hand.push_back(deck.back());
-		hand.insert_at_beginning(deck.back());
+		hand.insert_at_beginning(deck.back(), damage(deck.back()), health(deck.back()));
 		deck.pop_back();
-		fight();
 		//cout << hand.back() << " added to your hand" << endl;
 	}
 
 	
 	while (enemy_health > 0 and player_health > 0) {
-		int energy = 5;
+		int energy = 100;
 		//cout << hand.remove_card(name);
 		cout<<"Eneter a card you want to place on the field"<<endl;
-		cout<<"midget_army, midget_giant, army"<<endl;
+		hand.insert_at_beginning(deck.back(), damage(deck.back()), health(deck.back()));
+	    deck.pop_back();
+//phase 1: Draw a card
 		cout << "----------Your hand----------" << endl;
-		//	for (int i = 0; i < hand.size(); i++) {
-		//		cout << hand[i] << endl;
-		//	}
+		cout<<hand.print_list()<<endl;
 		cout << "---------------------------- -" << endl;
-		cin >> name;
-		//phase 1 draw a card
-		hand.insert_at_beginning(deck.back());
-		deck.pop_back();
-		//		cout << hand.back() << " added to your hand" << endl;
+
+		bool turn = true;
+	
+	
 		//phase 2 place card
 
-		while (name != "END") {
+		while (turn == true) {
 			cout << "Enter card name to place on field" << endl;
 			cout << "Enter(END) to end your turn" << endl;
 			cout << "Energy left: " << energy << endl;
 			cin >> name;
 			//4 card field
 		//	cout <<	hand.remove_card(name);
-
-			if (f1 == false) {
-				field1 = name;
-				field1_damage = damage(name);
-				field1_health = health(name);
-				field1_cost = cost(name);
-
-				//hand.remove_card(name);
-		//		cout << hand.check();
-
-				//				for (int i = 0; i < hand.size(); i++) {
-				//					cout << hand[i] << endl;
-				//				}
-			cout << " You have chosen: " << field1 << endl;
-			cout << field1 << "Damage: " << field1_damage << endl;
-			cout << field1 << "Health: " << field1_health << endl;
-				f1 = true;
-
+			if(energy>= cost(name)){
+			cout<<field.insert_at_beginning( name, damage(name), health(name))<<endl;
+			cout<<"Field cards: "<<field.print_list()<<endl;
+			energy-=cost(name);
 			}
-
-
-
+			else{
+			cout<<"You do NOT have enough energy, END turn."<<endl;
+			}
+			cout<<"Do you want to end turn: y/n?"<<endl;
+			cin>> choice;
+			if(choice == 'y')turn = false;
 		
 		}
+		turn = true;
+		string enemy_card = "";
 		//phase 3 attack
+		cout<<"Battle Phase"<<endl;
+		while (turn == true){
+		cout<<"Choose a card from your and that you want to attack with."<<endl;
+		cout << "----------Your hand-----------" << endl;
+		cout<<field.print_list()<<endl;
+		cout << "------------------------------" << endl;
+		cin>>name;
+		cout<<"Choose the enemy card you want to attack with "<<name<<endl;
+		cout << "----------Enemy hand----------" << endl;
+		cout<<enemy_field.print_list()<<endl;
+		cout << "------------------------------" << endl;
+		cin>>enemy_card;
+		cout<<"Your "<<name<<" has attacked enemys "<<enemy_card<<endl;
+		field.set_new_health(name, enemy_field.find_damage(enemy_card));
+		enemy_field.set_new_health(enemy_card, field.find_damage(name));
+		if(field.find_health(name)<1){
+			cout<<"Your "<<name<<" has been killed"<<endl;
+		}
+		if(enemy_field.find_health(enemy_card)<1){
+			            cout<<"Enemy"<<name<<" has been killed"<<endl;
+						        }
+
+		cout<<"Do you want to end turn: y/n?"<<endl;
+		cin>>choice;
+		if(choice == 'y')turn = false;
+		}
 
 
 
